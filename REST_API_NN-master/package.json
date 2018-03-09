@@ -1,0 +1,24 @@
+{
+  "name": "rest_api_nn",
+  "version": "1.0.0",
+  "description": "json package for mongo-express api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MelanieWest/REST_API_NN.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MelanieWest/REST_API_NN/issues"
+  },
+  "homepage": "https://github.com/MelanieWest/REST_API_NN#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.7"
+  }
+}
