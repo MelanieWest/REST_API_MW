@@ -9,10 +9,10 @@
     <title>Ninjago</title>
 </head>
 <body>
-    <h1 class="title">Ninjago- a Ninja REST API</h1>
+    <h1 class="title">Stars- a Star REST API</h1>
     <div id="homepage">
-        <h1>Hire a ninja in your area</h1>
-        <div id="ninjas">
+        <h1>Hire a star in your area</h1>
+        <div id="stars">
                 
         </div>
     </div>
@@ -21,35 +21,35 @@
     <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
     <!--Create React Component-->
     <script type="text/babel">
-    var Ninjas = React.createClass({
-        //set the initial state with a ninja property containing an empty array
+    var Stars = React.createClass({
+        //set the initial state with a star property containing an empty array
         getInitialState:function(){
             return({
-                ninjas:[]
+                stars:[]
             });
         },
         render:function(){
-            var ninjas=this.state.ninjas;
-            ninjas=ninjas.map(function(ninja,index){
+            var stars=this.state.stars;
+            stars=stars.map(function(star,index){
                 return(
                <li key={index}>
-                        <span className={ninja.available}></span>
-                        <span className="name">{ninja.name}</span>
-                        <span className="rank">{ninja.rank}</span>
-                        <span className="dist">{Math.floor((ninja.dist.calculated)*1000)}km</span>
+                        <span className={star.available}></span>
+                        <span className="name">{star.name}</span>
+                        <span className="rank">{star.rank}</span>
+                        <span className="dist">{Math.floor((star.dist.calculated)*1000)}km</span>
                     </li>
                 );
             });
             return(
-                <div id="ninj-container">
+                <div id="star-container">
                     <form id="search" onSubmit={this.handleSubmit}>
                         <label>Enter your latitude: </label>
                         <input type="text" ref="lat" placeholder="latitude" required/>
                         <label>Enter your longitude</label>
                         <input type="text" ref="lng" placeholder="longitude" required/>
-                        <input type="submit" value="Find Ninjas"/>
+                        <input type="submit" value="Find Stars"/>
                     </form>
-                    <ul>{ninjas}</ul>
+                    <ul>{stars}</ul>
                 </div>
             );
         },
@@ -60,17 +60,17 @@
             var lat = this.refs.lat.value;
             //use these values to interact with the database
             //'fetch' is like a 'get' request
-            fetch('/api/ninjas/?lng='+lng+'&lat='+lat).then(function(data){
+            fetch('/api/stars/?lng='+lng+'&lat='+lat).then(function(data){
                 return data.json();
             }).then(json=>{
                 this.setState({
-                    ninjas:json
+                    stars:json
                 });
             });
         }
     });
 
-    ReactDOM.render(<Ninjas/>,document.getElementById('ninjas'));
+    ReactDOM.render(<Stars/>,document.getElementById('stars'));
     </script>
 </body>
 </html>

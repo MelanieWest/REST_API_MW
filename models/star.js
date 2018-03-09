@@ -15,9 +15,9 @@ const GeoSchema = new Schema({
 });
 
 
-//create ninja schema & model
+//create star schema & model
 
-const NinjaSchema = new Schema({
+const StarSchema = new Schema({
     name:{
         type:String,
         required: [true, "Name field is required"]
@@ -32,7 +32,7 @@ const NinjaSchema = new Schema({
     geometry:GeoSchema     //use the geoschema defined above
 });
 
-const Ninja = mongoose.model('ninja',NinjaSchema);
-//mongo will create a collection with the plural of the name, 'ninjas'
+const Star = mongoose.model('star',StarSchema);
+//mongo will create a collection with the plural of the name, 'stars'
 
-module.exports = Ninja;
+module.exports = Star;

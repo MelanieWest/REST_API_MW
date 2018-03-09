@@ -12,7 +12,7 @@ const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 
 //use the mongoose method 'connect' to connect to db, naming the db here
-mongoose.connect('mongodb://localhost/ninjago');
+mongoose.connect('mongodb://localhost/stars');
 mongoose.Promise = global.Promise;
 
 //enable my program to interact with a front-end in the 'public' folder
