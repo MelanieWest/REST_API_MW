@@ -16,7 +16,9 @@ mongoose.connect('mongodb://localhost/stars');
 mongoose.Promise = global.Promise;
 
 //enable my program to interact with a front-end in the 'public' folder
-app.use(express.static('public'));
+//for now, while I'm loading my db, I'll disable this:
+
+//app.use(express.static('public'));
 
 //use bodyParser before routes, so the body data is json parsed before being sent
 //(this is middleware #1)
@@ -41,6 +43,3 @@ app.use(function(err,req,res,next){
 app.listen(process.env.port || 4000, function(){
     console.log('listening on port 4000 for requests')
 });
-
-//i am adding this comment to test my ssh key
-//I updated to the newest version of git, on 3/6/18.

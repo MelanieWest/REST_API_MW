@@ -9,27 +9,30 @@ const Star = require('../models/star');
 //(get, post, etc) and instead of saying 'app.get' we'll say
 //'router.get', as shown:
 
-//get a list of ninjas from the database
+//get a list of stars from the database
 router.get('/stars', function(req,res,next){
     //to test the route, we are just sending a simple response object
-    //res.send({type:'GET'});    //this is a dummy response to test the route and return something
+    res.send({type:'GET'});    //this is a dummy response to test the route and return something
  
-    // Star.find({}).then(function(stars){   //this method will find all the ninjas
+    // Star.find({}).then(function(stars){   //this method will find all the stars
     //     res.send(stars);
     // })
 
-  
- Stars.aggregate().near({
-   near: [parseFloat(req.query.lng), parseFloat(req.query.lat)],
-   maxDistance: 100000,
-   spherical: true,
-   distanceField: "dist.calculated"
-  }).then(function(stars){
-        res.send(stars);
-    });
+ 
+    //this next block is within 'get' and returns by distance from input lat & lng.  for now, disable this
+//  Stars.aggregate().near({
+//    near: [parseFloat(req.query.lng), parseFloat(req.query.lat)],
+//    maxDistance: 100000,
+//    spherical: true,
+//    distanceField: "dist.calculated"
+//   }).then(function(stars){
+//         res.send(stars);
+//   });
+
+
 });
 
-//add a new ninja to the db
+//add a new star to the db
 router.post('/stars', function(req,res,next){
 
     //since we are importing the model (object), we can use the model here
