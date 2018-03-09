@@ -16,9 +16,8 @@ mongoose.connect('mongodb://localhost/stars');
 mongoose.Promise = global.Promise;
 
 //enable my program to interact with a front-end in the 'public' folder
-//for now, while I'm loading my db, I'll disable this:
 
-//app.use(express.static('public'));
+app.use(express.static('public'));
 
 //use bodyParser before routes, so the body data is json parsed before being sent
 //(this is middleware #1)
